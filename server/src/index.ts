@@ -58,7 +58,7 @@ const main = async () => {
         domain: __prod__ ? ".codeponder.com" : undefined,
       },
       saveUninitialized: false,
-      secret: process.env.SESSION_SECRET,
+      secret: process.env.SESSION_SECRET as string,
       resave: false,
     })
   );
@@ -82,7 +82,7 @@ const main = async () => {
     cors: false,
   });
 
-  app.listen(parseInt(process.env.PORT), () => {
+  app.listen(parseInt(process.env.PORT!), () => {
     console.log("server started on localhost:4000");
   });
 };
